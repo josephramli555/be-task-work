@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <p><a href="/">Back to home</a></p>
+    <h2>Case C</h2>
+        <p><b>Function that can give word statistics: </b></p>
+        <ul>
+            <li>Total Word Count</li>
+            <li>Word count for every word</li>
+            <li>Numbers of words that only shows up once</li>
+            <li>Word that has highest count</li>
+            <li>Word that has smallest count</li>
+        </ul>
+</head>
+<body>
+    <form action="/soal3" method="POST" id="soal3">
+        <h2>Input</h2>
+        <br>
+        <textarea id="input3" name="input3"rows="10" cols="100" form="soal3">
+           
+        </textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Output</h2>
+    <p><b>Total Words Count: </b>{{.output.TotalWordCount}}</p>
+    <p><b>Total Words that shows once: </b>{{.output.TotalWordShowOnce}}</p>
+    <p><b>Words that highest count: </b></p>
+    <ul>
+        {{range $idx, $words := .output.HighestCountWords}}
+                <li>{{$words}}</li>
+        {{end}}
+    </ul>
+
+    <p><b>Words that smallest count: </b></p>
+    <ul>
+        {{range $idx, $words := .output.SmallestCountWords}}
+                <li>{{$words}}</li>
+        {{end}}
+    </ul>
+
+    <p><b>Words Counter: </b></p>
+    <ul>
+    {{range $key, $count := .output.WordCounters}}
+            <li>{{$key}} : {{$count}}</li>
+    {{end}}
+    </ul>
+    </body>
+</body>
+</html>

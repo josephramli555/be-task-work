@@ -1,0 +1,26 @@
+//Query for part A
+SELECT * FROM Customers WHERE City = 'Irvine'
+
+//Query for part b
+SELECT c.FirstName,c.LastName,o.OrderID,e.FirstName,e.LastName 
+FROM Customers  AS c 
+INNER JOIN ORDERS AS o ON c.CustomerID = o.CustomerID 
+INNER JOIN Employees AS E ON o.EmployeeID = E.EmployeeID 
+WHERE e.FirstName = "Adam" AND e.LastName="Barr"
+
+//Query For Part C
+SELECT p.ProductName,p.UnitPrice,P.InStock,c.CompanyName 
+FROM Customers AS c INNER JOIN ORDERS AS o ON c.CustomerID = O.CustomerID
+INNER JOIN Order_Details AS od ON o.OrderID = od.OrderID 
+INNER JOIN Products AS p ON od.ProductID = p.ProductID
+WHERE c.CompanyName = 'Contonso, Ltd'
+
+/Query For Part D
+SELECT o.OrderID, o.CustomerID,o.EmployeeID,o.OrderDate,o.PurchaseOrderNumber,o.ShipDate,s.ShippingMethod
+FROM Orders AS o INNER JOIN Shipping_Methods AS s ON o.ShippingMethodID = s.ShippingMethodID
+WHERE s.ShippingMethod = 'UPS Ground'
+
+//Query For Part E
+SELECT o.OrderID,((od.Quantity * od.UnitPrice)+ o.FreightCharge + o.Taxes) AS Totalcost,o.ShipDate 
+FROM Orders AS o INNER JOIN Order_Details AS od ON o.OrderID = od.OrderID
+ORDER BY o.ShipDate
