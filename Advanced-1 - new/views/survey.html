@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Survey Submission App</h1>
+    <h2><a href="/">Back to home</a></h2>
+    <form method="POST" action="/answers">
+        <label for="fname">What is your Name?</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="fname">{{.Q1}}</label><br>
+        <input type="text" id="answer1" name="answer1" required><br><br>
+        <label for="lname">{{.Q2}}</label><br>
+        <input type="text" id="answer2" name="answer2" required><br><br>
+        <label for="lname">{{.Q3}}</label><br>
+        <input type="text" id="answer3" name="answer3" required><br><br>
+        <input type="submit" value="Submit">
+      </form>
+</body>
+</html>

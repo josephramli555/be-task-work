@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+
+</head>
+<body>
+    <h1>Report List</h1>
+    <h2><a href="/">Back to home</a></h2>
+    <h2>{{.message}}</h2>
+    <ol>
+        {{range $idx, $val := .answerList}}
+                <li><b>User</b> : {{$val.User}}</li>
+                <p>{{$val.Question}}</p>
+                <p>Answer: {{$val.Answer}}</p>
+                <a href="/" id="{{$val.Answer_id}}"  class="delete-item">Delete this</a>
+                <a href="/formupdate/{{$val.Answer_id}}">Update Answer</a>
+        {{end}}
+    </ol>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/index.js"></script>
+</body>
+</html>

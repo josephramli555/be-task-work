@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+
+</head>
+<body>
+    <h1>Update Page</h1>
+    <h2><a href="/report">Back to report</a></h2>
+    <h2>{{.message}}</h2>
+    <ol>
+        <p><b>Name:</b> {{.prevAnswer.User}}</p>
+        <p><b>Prev Question:</b>{{.prevAnswer.Question}} </p>
+        <p><b>Prev Answers:</b>{{.prevAnswer.Answer}} </p>
+        <form method="GET" action="/report" id="form-update">
+            <label for="lname">New Answers:</label><br>
+            <input type="text" id="updateAnswer" name="answer3" required><br><br>
+            <input type="hidden" value="{{.prevAnswer.Answer_id}}" id="updateId">
+            <input type="submit" value="Submit" id="submit-update">
+          </form>
+    </ol>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/index.js"></script>
+</body>
+</html>
