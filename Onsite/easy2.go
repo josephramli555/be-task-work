@@ -14,7 +14,7 @@ func zeroSum(data []int){
 				answer:=fmt.Sprintf("%d %d %d",-1*x,data[i],data[j])
 				ans = append(ans,answer)
 			}else{
-				maps[x] = x
+				maps[j] = data[j]
 			}
 		}
 	}
